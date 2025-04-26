@@ -12,7 +12,7 @@
 # AI_CHATBOT_API_URL = "https://api.deepseek.com/v1/chat/completions"
 
 # # 你的OpenAI API密钥（正式用时要从环境变量或者安全地方加载，不要硬编码）
-# OPENAI_API_KEY = "sk-764ae6f76b1a48d285db597b52bbb97d"
+# OPENAI_API_KEY = ""
 
 # # 医生身份和上下文信息
 # DOCTOR_CONTEXT = {
