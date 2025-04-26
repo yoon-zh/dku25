@@ -2,32 +2,336 @@
 
 questions:
   - id: 1
+    type: "select"
+    question: "Gender"
+    options:
+      - "Male"
+      - "Female"
+      - "Other"
+
+  - id: 2
     type: "number"
     question: "What is your age?"
     placeholder: "Enter your age in years"
     min: 1
     max: 120
 
-  - id: 2
-    type: "select"
-    question: "How would you rate your overall health?"
-    options:
-      - "Excellent"
-      - "Good"
-      - "Fair"
-      - "Poor"
-      
   - id: 3
-    type: "multiselect"
-    question: "Select any symptoms you're currently experiencing:"
+    type: "select"
+    question: "Do you suffer from pain?"
     options:
-      - "Fatigue"
-      - "Headache"
-      - "Fever"
-      - "Cough"
-      - "Shortness of breath"
-      
+      - "Yes"
+      - "No"
+
+  - id: 3.1
+    type: "text"
+    question: "Which part of body do you suffer from pain?"
+    placeholder: "Describe your concerns..."
+
+  - id: 3.2
+    type: "select"
+    question: "How would you rate your pain on a scale from 1 to 10, with 1 being no pain and 10 being the worst pain you can imagine?"
+    options:
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "6"
+      - "7"
+      - "8"
+      - "9"
+      - "10"
+
+  - id: 3.3
+    type: "text"
+    question: "How often do you experience pain throughout the day?"
+    placeholder: "Describe your concerns..."
+
+  - id: 3.4
+    type: "text"
+    question: "Are there specific activates or times when the pain is worse?"
+    placeholder: "Describe your concerns..."
+
   - id: 4
+    type: "select"
+    question: "Have you experienced any fever?"
+    options:
+      - "Yes"
+      - "No"
+
+  - id: 4.1
+    type: "text"
+    question: "If yes, what is the highest body temperature detected?"
+    placeholder: "Describe your concerns..."
+
+  - id: 5
+    type: "select"
+    question: "Do you suffer from fatigue?"
+    options:
+      - "Yes"
+      - "No"
+
+  - id: 5.1
+    type: "select"
+    question: "If yes, how would you rate your level of fatigue on a scale from 1 to 10, with 1 being fully energized and 10 being completely exhausted?"
+    options:
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "6"
+      - "7"
+      - "8"
+      - "9"
+      - "10"
+
+  - id: 5.2
+    type: "text"
+    question: "Does the fatigue affect your daily activities?"
+    placeholder: "Describe your concerns..."
+
+  - id: 6
+    type: "select"
+    question: "How would you rate your appetite on a scale from 1 to 10, with 1 being no appetite at all and 10 being very hungry?"
+    options:
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "6"
+      - "7"
+      - "8"
+      - "9"
+      - "10"
+
+  - id: 7
+    type: "text"
+    question: " Have you noticed any changes in your eating habits?"
+    placeholder: "Describe your concerns..."
+
+  - id: 8
+    type: "select"
+    question: "How would you rate your sleep quality on a scale from 1 to 10, with 1 being very poor sleep and 10 being excellent sleep?"
+    options:
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "6"
+      - "7"
+      - "8"
+      - "9"
+      - "10"
+
+  - id: 9
+    type: "select"
+    question: "Do you have trouble falling asleep or staying asleep?"
+    options:
+      - "Yes"
+      - "No"
+
+  - id: 10
+    type: "select"
+    question: "Do you have trouble breathing?"
+    options:
+      - "Yes"
+      - "No"
+
+  - id: 10.1
+    type: "select"
+    question: "How would you rate your breathing difficulty on a scale from 1 to 10, with 1 being no difficulty and 10 being severe shortness of breath?"
+    options:
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "6"
+      - "7"
+      - "8"
+      - "9"
+      - "10"
+
+  - id: 10.2
+    type: "text"
+    question: "Do you experience shortness of breath during physical activity or at rest?"
+    placeholder: "Describe your concerns..."
+
+  - id: 11
+    type: "select"
+    question: "Do you suffer from nausea?"
+    options:
+      - "Yes"
+      - "No"
+
+  - id: 11.1
+    type: "select"
+    question: "How would you rate your nausea on a scale from 1 to 10, with 1 being no nausea and 10 being severe nausea?"
+    options:
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "6"
+      - "7"
+      - "8"
+      - "9"
+      - "10"
+
+  - id: 12
+    type: "select"
+    question: "Have you experienced any vomiting or dry heaves?"
+    options:
+      - "Yes"
+      - "No"
+
+  - id: 12.1
+    type: "text"
+    question: " If so, how often?"
+    placeholder: "Describe your concerns..."
+
+  - id: 13
+    type: "select"
+    question: "Do you cough?"
+    options:
+      - "Yes"
+      - "No"
+
+  - id: 13.1
+    type: "select"
+    question: "How would you rate your severity of your cough on a scale from 1 to 10, with 1 being no cough and 10 being a severe, persistent cough?"
+    options:
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "6"
+      - "7"
+      - "8"
+      - "9"
+      - "10"
+
+  - id: 13.2
+    type: "select"
+    question: "Is your cough productive(producing mucus) or dry?"
+    options:
+      - "Productive (producing mucus)"
+      - "Dry"
+
+  - id: 14
+    type: "select"
+    question: "Do you suffer from rash or itching?"
+    options:
+      - "Yes"
+      - "No"
+
+  - id: 14.1
+    type: "select"
+    question: "On a scale from 1-10, how would you rate the severity of your rash or itching, with 1 being on rash/ itching and 10 being severe?"
+    options:
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "6"
+      - "7"
+      - "8"
+      - "9"
+      - "10"
+
+  - id: 14.2
+    type: "select"
+    question: "Is the rash localized or widespread?"
+    options:
+      - "Localized"
+      - "Widespread"
+
+  - id: 14.3
+    type: "text"
+    question: "If the rash is localized, where is it?"
+    placeholder: "Describe your concerns..."
+
+  - id: 15
+    type: "select"
+    question: "Do you suffer from sweeling?"
+    options:
+      - "Yes"
+      - "No"
+
+  - id: 15.1
+    type: "select"
+    question: "How would you rate the sweeling on a scale from 1-10, with 1 being sweeling and 10 being severe sweeling?"
+    options:
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "6"
+      - "7"
+      - "8"
+      - "9"
+      - "10"
+
+  - id: 15.2
+    type: "text"
+    question: "Is the sweeling accompanied by redness or warmth?"
+    placeholder: "Describe your concerns..."
+
+  - id: 16
+    type: "select"
+    question: "Do you feel that your movements are slow or that you have difficulty initiating movements?"
+    options:
+      - "Yes"
+      - "No"
+
+  - id: 16.1
+    type: "select"
+    question: "If yes, how would you rate the severity of this symptom on a scale from 1 to 10?"
+    options:
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "6"
+      - "7"
+      - "8"
+      - "9"
+      - "10"
+
+  - id: 17
+    type: "select"
+    question: "Have you noticed any tremors or rigidity in your body?"
+    options:
+      - "Yes"
+      - "No"
+
+  - id: 17.1
+    type: "text"
+    question: "If yes, in which parts of your body do you experience these symptoms?"
+    placeholder: "Describe your concerns..."
+
+  - id: 18
+    type: "select"
+    question: "Have you experienced diarrhea?"
+    options:
+      - "Yes"
+      - "No"
+
+  - id: 18.1
+    type: "text"
+    question: "If yes, how would you describe the consistency and frequency of your stools?"
+    placeholder: "Describe your concerns..."
+
+  - id: 19
     type: "text"
     question: "Any other health concerns you'd like to mention?"
     placeholder: "Describe your concerns..."
