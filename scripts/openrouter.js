@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('llm-form');
     const responseDiv = document.getElementById('llm-response');
-    const API_KEY = 'YOUR_API_KEY'; // Replace with your OpenRouter API key
+    const API_KEY = 'YOUR_API_KEY';
     const API_URL = 'https://openrouter.ai/api/v1/chat/completions';
 
     form.addEventListener('submit', async function(e) {
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     'X-Title': document.title
                 },
                 body: JSON.stringify({
-                    model: 'google/palm-2', // Default model, change as needed
+                    model: 'google/palm-2',
                     messages: [{
                         role: 'user',
                         content: prompt
