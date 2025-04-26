@@ -1,3 +1,5 @@
+# _data/survey.yml
+
 questions:
   - id: 1
     type: "number"

@@ -147,8 +147,8 @@ document.addEventListener('DOMContentLoaded', () => {
         this.elements.analysisResult.textContent = 'Analyzing your responses...';
         this.hideAllSections();
         document.getElementById('ai-response').classList.add('active');
-        
-        const prompt = buildHealthPrompt(this.answers, site.data.survey.questions);
+        const prompt = buildHealthPrompt(this.answers, this.elements.questions);
+        console.log(prompt);
         const analysis = await this.getHealthAnalysis(prompt);
         
         this.elements.analysisResult.textContent = analysis;
