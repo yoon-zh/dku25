@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Health Questionnaire</title>
+</head>
+<body>
+  <h1>Fill out the Questionnaire</h1>
+
+  <form id="questionnaire-form">
+    <label for="symptom">Symptom:</label><br>
+    <input type="text" id="symptom" name="symptom"><br><br>
+
+    <label for="duration">Duration:</label><br>
+    <input type="text" id="duration" name="duration"><br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <div id="result" style="margin-top:20px; color: green;"></div>
+
+  <script>
+    const form = document.getElementById('questionnaire-form');
+    const resultDiv = document.getElementById('result');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault(); // 阻止表单默认提交行为
+
+      const symptom = document.getElementById('symptom').value;
+      const duration = document.getElementById('duration').value;
+
+      const data = {
+        symptom: symptom,
+        duration: duration
+      };
+
+      try {
+        const response = await fetch('http://127.0.0.1:5000/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+          resultDiv.innerHTML = `<strong>AI Analysis:</strong> ${JSON.stringify(result.analysis)}`;
+        } else {
+          resultDiv.innerHTML = `<strong>Error:</strong> ${result.error}`;
+        }
+      } catch (error) {
+        resultDiv.innerHTML = `<strong>Error:</strong> ${error}`;
+      }
+    });
+  </script>
+</body>
+</html>
