@@ -4,7 +4,7 @@ window.buildHealthPrompt = function(answers, questions) {
   
   prompt += Object.entries(answers)
     .map(([qId, answer]) => {
-      const question = questions.find(q => q.id == qId).question;
+      const question = questions.find(q => q.dataset.questionId == qId).question;
       return `Question: ${question}\nAnswer: ${Array.isArray(answer) ? answer.join(', ') : answer}`;
     })
     .join('\n\n');
