@@ -20,11 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
         questions: Array.from(document.querySelectorAll('.question-step')),
         prevBtn: document.getElementById('prev-question'),
         nextBtn: document.getElementById('next-question'),
+        finishBtn: document.getElementById('finish-modify'),
         controls: document.querySelector('.survey-controls'),
         summaryTable: document.getElementById('summary-answers'),
         submitBtn: document.getElementById('submit-survey'),
         analysisResult: document.querySelector('.analysis-result'),
         restartBtn: document.getElementById('restart-survey'),
+        retryBtn: document.getElementById('retry-survey'),
         inputs: Array.from(document.querySelectorAll('input, textarea'))
       };
     },
@@ -41,8 +43,10 @@ document.addEventListener('DOMContentLoaded', () => {
       this.elements.startBtn.addEventListener('click', () => this.startSurvey());
       this.elements.prevBtn.addEventListener('click', () => this.prevQuestion());
       this.elements.nextBtn.addEventListener('click', () => this.nextQuestion());
+      this.elements.finishBtn.addEventListener('click', () => this.showSummary());
       this.elements.submitBtn.addEventListener('click', () => this.submitSurvey());
       this.elements.restartBtn.addEventListener('click', () => this.restartSurvey());
+      this.elements.retryBtn.addEventListener('click', () => this.submitSurvey());
 
       this.elements.inputs.forEach(input => {
         input.addEventListener('input', (e) => this.handleInput(e));
@@ -57,6 +61,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const input = e.target;
       const questionId = input.closest('.question-step').dataset.questionId;
       this.answers[questionId] = input.value.trim();
+
+      if (input.classList.contains('scale-slider')) {
+        input.nextElementSibling.textContent = input.value;
+      }
     },
       
     startSurvey() {
@@ -67,17 +75,50 @@ document.addEventListener('DOMContentLoaded', () => {
     },
       
     showStep(stepIndex) {
+      while (stepIndex >= 0 && this.shouldSkipQuestion(this.elements.questions[stepIndex])) {
+        stepIndex--;
+      }
+    
+      if (stepIndex < 0) return;
+    
+      this.currentStep = stepIndex;
       this.elements.questions.forEach((question, index) => {
         question.style.display = index === stepIndex ? 'block' : 'none';
       });
         
       this.elements.prevBtn.style.display = stepIndex > 0 ? 'flex' : 'none';
       this.elements.nextBtn.textContent = stepIndex === this.elements.questions.length - 1 ? 'Review' : 'Next';
+
+      if (this.isModifying) {
+        this.elements.nextBtn.style.display = stepIndex < this.elements.questions.length - 1 ? 'flex' : 'none';
+        this.elements.finishBtn.style.display = 'flex';
+      }
+      else {
+        this.elements.finishBtn.style.display = 'none';
+        this.elements.nextBtn.textContent = stepIndex === this.elements.questions.length - 1 ? 'Review' : 'Next';
+      }
+    },
+
+    isMainQuestion(question) {
+      return !question.dataset.questionId.includes('.');
     },
       
     nextQuestion() {
-      if (this.currentStep < this.elements.questions.length - 1) {
-        this.currentStep++;
+      let nextStep = this.currentStep + 1;
+      
+      const currentQuestion = this.elements.questions[this.currentStep];
+      if (this.isMainQuestion(currentQuestion)) {
+        const answer = this.answers[currentQuestion.dataset.questionId];
+        if (answer === 'No') {
+        while (nextStep < this.elements.questions.length && 
+            !this.isMainQuestion(this.elements.questions[nextStep])) {
+          nextStep++;
+          }
+        }
+      }
+  
+      if (nextStep < this.elements.questions.length) {
+        this.currentStep = nextStep;
         this.showStep(this.currentStep);
       }
       else {
@@ -86,12 +127,35 @@ document.addEventListener('DOMContentLoaded', () => {
     },
       
     prevQuestion() {
-      if (this.currentStep > 0) {
-        this.currentStep--;
+      let prevStep = this.currentStep - 1;
+      while (prevStep >= 0) {
+        const question = this.elements.questions[prevStep];
+        const qId = question.dataset.questionId;
+    
+        if (qId.includes('.')) {
+          const parentId = qId.split('.')[0];
+          if (this.answers[parentId] === 'No') {
+            prevStep--;
+            continue;
+          }
+        }
+        break;
+      }
+
+      if (prevStep >= 0) {
+        this.currentStep = prevStep;
         this.showStep(this.currentStep);
       }
     },
       
+    shouldSkipQuestion(question) {
+      const qId = question.dataset.questionId;
+      if (!qId.includes('.')) return false;
+      
+      const parentId = qId.split('.')[0];
+      return this.answers[parentId] === 'No';
+    },
+
     handleOptionSelect(e) {
       const option = e.currentTarget;
       const questionId = option.closest('.question-step').dataset.questionId;
@@ -109,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
         this.answers[questionId] = selected;
       }
     },
-      
+
     showSummary() {
       this.hideAllSections();
       document.getElementById('summary-screen').classList.add('active');
@@ -117,6 +181,10 @@ document.addEventListener('DOMContentLoaded', () => {
       this.elements.summaryTable.innerHTML = this.elements.questions
         .map(question => {
           const qId = question.dataset.questionId;
+          if (qId.includes('.')) {
+            const parentId = qId.split('.')[0];
+            if (this.answers[parentId] === 'No') return null;
+          }
           const qText = question.querySelector('.question-text').textContent;
           const answer = this.answers[qId] || 'Not answered';
           const displayAnswer = answer === '' ? 'Not answered' : answer;
@@ -129,6 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </tr>
           `;
         })
+        .filter(row => row !== null)
         .join('');
 
       document.querySelectorAll('.modify-btn').forEach(btn => {
@@ -138,6 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
           this.elements.controls.style.display = 'flex';
           this.currentStep = parseInt(btn.dataset.questionId) - 1;
           this.showStep(this.currentStep);
+          this.isModifying = true;
         });
       });
     },
@@ -146,6 +216,8 @@ document.addEventListener('DOMContentLoaded', () => {
       try {
         this.elements.analysisResult.textContent = 'Analyzing your responses...';
         this.hideAllSections();
+        this.isModifying = false;
+        this.elements.retryBtn.style.display = 'none';
         document.getElementById('ai-response').classList.add('active');
         const prompt = buildHealthPrompt(this.answers, this.elements.questions);
         console.log(prompt);
@@ -156,6 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
       catch (error) {
         console.error('Error:', error);
         this.elements.analysisResult.textContent = 'Error generating analysis. Please try again.';
+        this.elements.retryBtn.style.display = 'flex';
       }
     },
 
@@ -190,6 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('welcome-screen').classList.add('active');
       this.elements.inputs.forEach(input => input.value = '');
       document.querySelectorAll('.selected').forEach(el => el.classList.remove('selected'));
+      this.elements.retryBtn.style.display = 'none';
     }
   };
     
