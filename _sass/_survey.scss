@@ -1,0 +1,94 @@
+// _sass/_survey.scss
+.survey-step {
+  display: none;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: $card-bg;
+  border-radius: $card-radius;
+  box-shadow: $card-shadow;
+   
+  &.active {
+    display: block;
+  }
+}
+  
+.btn-primary, .btn-secondary {
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: $card-transition;
+  user-select: none;
+    
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+  
+.btn-primary {
+  background: linear-gradient(135deg, $primary, $secondary);
+  color: $text-primary;
+}
+  
+.btn-secondary {
+  background: $darker-bg;
+  color: $text-secondary;
+  border: 1px solid rgba($primary, 0.3);
+}
+  
+.question-step {
+  .question-text {
+    color: $text-primary;
+    margin-bottom: 1.5rem;
+  }
+    
+  .select-options, .multiselect-options {
+    display: grid;
+    gap: 1rem;
+    
+    .select-option, .multiselect-option {
+      padding: 1rem;
+      background: $darker-bg;
+      border-radius: 8px;
+      cursor: pointer;
+      position: relative;
+      transition: $card-transition;
+        
+      &:hover {
+        background: lighten($darker-bg, 5%);
+      }
+        
+      &.selected {
+        background: rgba($primary, 0.1);
+        border: 1px solid $primary;
+      }
+    }
+  }
+}
+  
+.summary-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+    
+  th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba($primary, 0.1);
+  }
+    
+  td {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+  
+.analysis-result {
+  padding: 2rem;
+  background: $darker-bg;
+  border-radius: $card-radius;
+  margin: 2rem 0;
+  white-space: pre-wrap;
+  line-height: 1.6;
+}

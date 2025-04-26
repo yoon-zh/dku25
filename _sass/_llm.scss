@@ -1,0 +1,26 @@
+// _sass/_llm.scss
+.llm-form {
+  margin: 2rem 0;
+    
+  input {
+      padding: 0.5rem;
+      width: 300px;
+      margin-right: 1rem;
+  }
+    
+  button {
+      padding: 0.5rem 1rem;
+      background: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+  }
+}
+
+.response-area {
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  min-height: 100px;
+  white-space: pre-wrap;
+}

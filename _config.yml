@@ -43,6 +43,9 @@ kramdown:
     block:
       line_numbers: false
 
+include:
+  - _data/survey.yml
+
 exclude:
   - README.md
   - Gemfile

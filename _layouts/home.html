@@ -4,15 +4,82 @@ layout: default
 <!-- _layouts/home.html -->
 <section class="hero">
   <div class="hero-content">
-    <h1 class="hero-title">Home | 首页 </h1>
-    <p class="hero-subtitle">#define jiā 홈페이지 [homepage] 초기 화면</p>
+    <h1 class="hero-title">Home</h1>
+    <p class="hero-subtitle">homepage</p>
   </div>
 </section>
 
 <section class="content-section">
-  {% include card-grid.html 
-    collection="projects" 
-    title="Featured Projects" 
-    show_date=false
-    limit=3 %}
+  <div id="survey-flow">
+    <div id="welcome-screen" class="survey-step active">
+      <h2>Welcome to Your Daily Health Check</h2>
+      <p>Let's assess your current health status and identify potential risks.</p>
+      <div class="btn-primary" id="start-survey">Start Check-Up</div>
+    </div>
+
+    <div id="questions-container" class="survey-step">
+      {% for question in site.data.survey.questions %}
+      <div class="question-step" data-question-id="{{ question.id }}">
+        <h3 class="question-text">{{ question.question }}</h3>
+        <div class="question-input">
+          {% case question.type %}
+            {% when 'number' %}
+              <input type="number" 
+                    data-question-id="{{ question.id }}"
+                    min="{{ question.min }}" 
+                    max="{{ question.max }}"
+                    placeholder="{{ question.placeholder }}">
+                    
+            {% when 'select' %}
+              <div class="select-options">
+                {% for option in question.options %}
+                  <div class="select-option" data-value="{{ option }}">{{ option }}</div>
+                {% endfor %}
+              </div>
+              
+            {% when 'multiselect' %}
+              <div class="multiselect-options">
+                {% for option in question.options %}
+                  <div class="multiselect-option" data-value="{{ option }}">
+                    {{ option }}
+                    <div class="checkmark"></div>
+                  </div>
+                {% endfor %}
+              </div>
+              
+            {% when 'text' %}
+              <textarea data-question-id="{{ question.id }}" 
+                      placeholder="{{ question.placeholder }}"></textarea>
+          {% endcase %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="survey-controls">
+      <div class="btn-secondary" id="prev-question">Previous</div>
+      <div class="btn-primary" id="next-question">Next</div>
+    </div>
+
+    <div id="summary-screen" class="survey-step">
+      <h2>Review Your Answers</h2>
+      <table class="summary-table">
+        <thead>
+          <tr>
+            <th>Question</th>
+            <th>Answer</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="summary-answers"></tbody>
+      </table>
+      <div class="btn-primary" id="submit-survey">Submit Health Check</div>
+    </div>
+
+    <div id="ai-response" class="survey-step">
+      <h2>Health Analysis</h2>
+      <div class="analysis-result"></div>
+      <div class="btn-primary" id="restart-survey">Start New Check-Up</div>
+    </div>
+  </div>
 </section>
