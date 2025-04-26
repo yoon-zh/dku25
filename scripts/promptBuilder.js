@@ -17,7 +17,7 @@ Here is the health survey results with the users' input:
       return `Question: ${question}\nAnswer: ${Array.isArray(answer) ? answer.join(', ') : answer}`;
     })
     .join('\n\n');
-
+    
   // prompt += "\n\nProvide analysis in this structured format:\n";
   // prompt += "- Current Health Status:\n- Potential Risks:\n- Recommendations:\n- Predicted Health Trends:";
   console.log(prompt);
