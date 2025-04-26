@@ -97,7 +97,7 @@ CORS(app)
 
 # DeepSeek API Configuration
 DEEPSEEK_API_URL = "https://api.deepseek.com/v1/chat/completions"
-DEEPSEEK_API_KEY = "sk-24d35ea10a91460eb491e08d4f776347"  # Recommend setting this via an environment variable
+DEEPSEEK_API_KEY = "themagicwords:3"  # Recommend setting this via an environment variable
 
 # Doctor Context Configuration
 DOCTOR_CONTEXT = {

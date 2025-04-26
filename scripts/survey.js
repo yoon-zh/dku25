@@ -1,6 +1,6 @@
 // scripts/survey.
 document.addEventListener('DOMContentLoaded', () => {
-  const API_KEY = 'YOUR_API_KEY';
+  const API_KEY = 'myapikey';
   const API_URL = 'https://openrouter.ai/api/v1/chat/completions';
   const surveyFlow = {
     currentStep: 0,
@@ -170,13 +170,11 @@ document.addEventListener('DOMContentLoaded', () => {
           'X-Title': document.title
         },
         body: JSON.stringify({
-          model: 'deepseek-ai/deepseek-7b-chat',
+          model: 'deepseek/deepseek-r1-distill-llama-70b:free',
           messages: [{
             role: 'user',
             content: prompt
           }],
-          temperature: 0.7,
-          max_tokens: 1000
         })
       });
         
