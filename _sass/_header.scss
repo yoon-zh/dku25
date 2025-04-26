@@ -58,7 +58,7 @@
     }
 
     .logo {
-      font-size: 2.25rem;
+      font-size: 3rem;
       margin: 0;
       background: linear-gradient(45deg, $primary, $secondary);
       -webkit-background-clip: text;
@@ -66,6 +66,8 @@
       color: transparent;
       transition: all 0.3s ease;
       position: relative;
+      text-align: center;
+      display: inline-block;
       
       &::after {
         content: '';
