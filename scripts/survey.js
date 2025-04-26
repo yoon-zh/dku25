@@ -1,6 +1,16 @@
 // scripts/survey.
 document.addEventListener('DOMContentLoaded', () => {
-  const API_KEY = 'myapikey';
+  const queryString = window.location.search  
+  const params = new URLSearchParams(queryString)  
+  const keyValue = params.get("key")
+  if (keyValue !== null) {
+    API_KEY = atob(keyValue);
+    console.log(API_KEY);
+  }
+  else {
+    console.log("no foo param in url")
+  }
+
   const API_URL = 'https://openrouter.ai/api/v1/chat/completions';
   const surveyFlow = {
     currentStep: 0,
