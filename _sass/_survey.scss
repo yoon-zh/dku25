@@ -92,6 +92,32 @@
         }
       }
     }
+
+    .scale-container {
+      padding: 0 1rem;
+      
+      .scale-slider {
+        width: 100%;
+        margin: 1rem 0;
+        background: $darker-bg;
+        height: 5px;
+        
+        &::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          width: 20px;
+          height: 20px;
+          background: $primary;
+          border-radius: 50%;
+        }
+      }
+      
+      .scale-value {
+        display: block;
+        text-align: center;
+        font-size: 1.2rem;
+        margin-top: -0.5rem;
+      }
+    }
   }
 }
   

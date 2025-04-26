@@ -46,6 +46,17 @@ layout: default
                   </div>
                 {% endfor %}
               </div>
+
+            {% when 'scale' %}
+              <div class="scale-container">
+                <input type="range" 
+                       data-question-id="{{ question.id }}"
+                       min="{{ question.min | default: 1 }}" 
+                       max="{{ question.max | default: 10 }}"
+                       value="{{ question.min | default: 1 }}"
+                       class="scale-slider">
+                <output class="scale-value">{{ question.min | default: 1 }}</output>
+              </div>
               
             {% when 'text' %}
               <textarea data-question-id="{{ question.id }}" 
@@ -59,6 +70,7 @@ layout: default
     <div class="survey-controls">
       <div class="btn-secondary" id="prev-question">Previous</div>
       <div class="btn-primary" id="next-question">Next</div>
+      <div class="btn-primary" id="finish-modify" style="display: none;">Finish</div>
     </div>
 
     <div id="summary-screen" class="survey-step">
@@ -80,6 +92,7 @@ layout: default
       <h2>Health Analysis</h2>
       <div class="analysis-result"></div>
       <div class="btn-primary" id="restart-survey">Start New Check-Up</div>
+      <div class="btn-primary" id="retry-survey" style="display: none;">Try Again</div>
     </div>
   </div>
 </section>

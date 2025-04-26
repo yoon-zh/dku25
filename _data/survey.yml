@@ -29,19 +29,10 @@ questions:
     placeholder: "Describe your concerns..."
 
   - id: 3.2
-    type: "select"
-    question: "How would you rate your pain on a scale from 1 to 10, with 1 being no pain and 10 being the worst pain you can imagine?"
-    options:
-      - "1"
-      - "2"
-      - "3"
-      - "4"
-      - "5"
-      - "6"
-      - "7"
-      - "8"
-      - "9"
-      - "10"
+    type: "scale"
+    question: "How would you rate your pain..."
+    min: 1
+    max: 10
 
   - id: 3.3
     type: "text"
@@ -73,19 +64,10 @@ questions:
       - "No"
 
   - id: 5.1
-    type: "select"
+    type: "scale"
     question: "If yes, how would you rate your level of fatigue on a scale from 1 to 10, with 1 being fully energized and 10 being completely exhausted?"
-    options:
-      - "1"
-      - "2"
-      - "3"
-      - "4"
-      - "5"
-      - "6"
-      - "7"
-      - "8"
-      - "9"
-      - "10"
+    min: 1
+    max: 10
 
   - id: 5.2
     type: "text"
@@ -93,19 +75,10 @@ questions:
     placeholder: "Describe your concerns..."
 
   - id: 6
-    type: "select"
+    type: "scale"
     question: "How would you rate your appetite on a scale from 1 to 10, with 1 being no appetite at all and 10 being very hungry?"
-    options:
-      - "1"
-      - "2"
-      - "3"
-      - "4"
-      - "5"
-      - "6"
-      - "7"
-      - "8"
-      - "9"
-      - "10"
+    min: 1
+    max: 10
 
   - id: 7
     type: "text"
@@ -113,19 +86,10 @@ questions:
     placeholder: "Describe your concerns..."
 
   - id: 8
-    type: "select"
+    type: "scale"
     question: "How would you rate your sleep quality on a scale from 1 to 10, with 1 being very poor sleep and 10 being excellent sleep?"
-    options:
-      - "1"
-      - "2"
-      - "3"
-      - "4"
-      - "5"
-      - "6"
-      - "7"
-      - "8"
-      - "9"
-      - "10"
+    min: 1
+    max: 10
 
   - id: 9
     type: "select"
@@ -142,19 +106,10 @@ questions:
       - "No"
 
   - id: 10.1
-    type: "select"
+    type: "scale"
     question: "How would you rate your breathing difficulty on a scale from 1 to 10, with 1 being no difficulty and 10 being severe shortness of breath?"
-    options:
-      - "1"
-      - "2"
-      - "3"
-      - "4"
-      - "5"
-      - "6"
-      - "7"
-      - "8"
-      - "9"
-      - "10"
+    min: 1
+    max: 10
 
   - id: 10.2
     type: "text"
@@ -169,19 +124,10 @@ questions:
       - "No"
 
   - id: 11.1
-    type: "select"
+    type: "scale"
     question: "How would you rate your nausea on a scale from 1 to 10, with 1 being no nausea and 10 being severe nausea?"
-    options:
-      - "1"
-      - "2"
-      - "3"
-      - "4"
-      - "5"
-      - "6"
-      - "7"
-      - "8"
-      - "9"
-      - "10"
+    min: 1
+    max: 10
 
   - id: 12
     type: "select"
@@ -203,19 +149,10 @@ questions:
       - "No"
 
   - id: 13.1
-    type: "select"
+    type: "scale"
     question: "How would you rate your severity of your cough on a scale from 1 to 10, with 1 being no cough and 10 being a severe, persistent cough?"
-    options:
-      - "1"
-      - "2"
-      - "3"
-      - "4"
-      - "5"
-      - "6"
-      - "7"
-      - "8"
-      - "9"
-      - "10"
+    min: 1
+    max: 10
 
   - id: 13.2
     type: "select"
@@ -232,19 +169,10 @@ questions:
       - "No"
 
   - id: 14.1
-    type: "select"
+    type: "scale"
     question: "On a scale from 1-10, how would you rate the severity of your rash or itching, with 1 being on rash/ itching and 10 being severe?"
-    options:
-      - "1"
-      - "2"
-      - "3"
-      - "4"
-      - "5"
-      - "6"
-      - "7"
-      - "8"
-      - "9"
-      - "10"
+    min: 1
+    max: 10
 
   - id: 14.2
     type: "select"
@@ -266,19 +194,10 @@ questions:
       - "No"
 
   - id: 15.1
-    type: "select"
+    type: "scale"
     question: "How would you rate the sweeling on a scale from 1-10, with 1 being sweeling and 10 being severe sweeling?"
-    options:
-      - "1"
-      - "2"
-      - "3"
-      - "4"
-      - "5"
-      - "6"
-      - "7"
-      - "8"
-      - "9"
-      - "10"
+    min: 1
+    max: 10
 
   - id: 15.2
     type: "text"
@@ -293,19 +212,10 @@ questions:
       - "No"
 
   - id: 16.1
-    type: "select"
+    type: "scale"
     question: "If yes, how would you rate the severity of this symptom on a scale from 1 to 10?"
-    options:
-      - "1"
-      - "2"
-      - "3"
-      - "4"
-      - "5"
-      - "6"
-      - "7"
-      - "8"
-      - "9"
-      - "10"
+    min: 1
+    max: 10
 
   - id: 17
     type: "select"
