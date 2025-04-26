@@ -1,0 +1,18 @@
+---
+layout: default
+---
+<!-- _layouts/home.html -->
+<section class="hero">
+  <div class="hero-content">
+    <h1 class="hero-title">Home | 首页 </h1>
+    <p class="hero-subtitle">#define jiā 홈페이지 [homepage] 초기 화면</p>
+  </div>
+</section>
+
+<section class="content-section">
+  {% include card-grid.html 
+    collection="projects" 
+    title="Featured Projects" 
+    show_date=false
+    limit=3 %}
+</section>

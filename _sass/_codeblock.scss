@@ -1,0 +1,84 @@
+// _sass/_codeblock.scss
+.code-block-container {
+  position: relative;
+  margin: 1.5rem 0;
+  width: 100%;
+  background: $code-bg;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  .code-block-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: $code-header;
+    border-radius: 10px 10px 0 0;
+    padding: 5px 15px;
+    color: $text-primary;
+    font-family: $code-font;
+    font-size: 0.8em;
+    line-height: 30px;
+    z-index: 2;
+  }
+
+  .code-copy-button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: $text-primary;
+    padding: 2px 8px;
+    font-size: 0.9em;
+    cursor: pointer;
+    z-index: 3;
+  }
+
+  pre {
+    font-family: $code-font;
+    font-size: 0.85em;
+    tab-size: 4;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    margin: 0;
+    background: transparent;
+    border-radius: 10px;
+    padding: 50px 12px 10px;
+    overflow-x: auto;
+    
+    code {
+      background: transparent;
+      border-radius: 10px;
+      padding: 1rem;
+      line-height: 1.5;
+      white-space: pre;
+      display: block;
+    }
+
+    .unrecognized {
+      color: $code-text !important;
+      font-size: 0.9rem !important;
+    }
+  }
+}
+
+// Inline code
+code.highlighter-rouge:not(pre code) {
+  background: $code-bg;
+  color: $code-text;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-family: $code-font;
+  font-size: 0.9em;
+  line-height: 1.4;
+  vertical-align: middle;
+  white-space: pre-wrap;
+  word-break: break-word;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 768px) {
+    font-size: 0.8em;
+    padding: 0.15em 0.35em;
+    line-height: 1.3;
+  }
+}

@@ -1,0 +1,163 @@
+// _sass/_mobile.scss
+@media (max-width: 768px) { 
+  .hero {
+    height:40vh;
+    .hero-content {
+      h1 {
+        font-size: 3.5rem;
+      }
+    }
+    .hero-subtitle {
+      font-size: 1.2rem;
+    }
+  } 
+
+  .site-header {
+    width: 100%;
+    overflow: hidden;
+
+    
+    .logo-group {
+      flex: 0 1 auto;
+      gap: 1rem;
+    }
+
+    .logo-container {
+      text-align: center;
+      .logo {
+        font-size: 2rem;
+      }
+
+      .logo-subtitle {
+        font-size: 1rem;
+      }
+    }
+
+    .nav-container {
+      max-width: 100%;
+      padding: 0 1rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .nav-links {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      
+      a {
+        font-size: 1.25rem;
+        padding: 0.5rem 0;
+      }
+    }
+  }
+  .page-content {
+    width: 90%;
+    
+    h1, h2, h3 {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+      max-width: 100%;
+    }
+      
+    ul, ol {
+      padding-left: 1.2rem;
+    }
+
+    .article-detail {
+      .article-content {
+        h1 {
+          font-size: 1.8rem;
+        }
+        h3 {
+          padding-top: 0.5rem;
+        }
+      }
+    }
+  }
+    
+  .content-section {
+    padding: 1.5rem 3% 3rem;
+  }
+
+  .pepito1 {
+    height: 30vh;
+
+    .pepito1-title {
+      font-size: 3rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    height: 30vh;
+    .hero-content {
+      h1 {
+        font-size: 2.75rem;
+      }
+    }
+    .hero-subtitle {
+      font-size: 0.9rem;
+    }
+  }
+  
+  .site-header {
+    width: 100%;
+    .logo-container{
+      .logo-link {
+        .logo {
+          font-size: 0px;
+        }
+      }
+  
+      .logo-subtitle {
+        font-size: 0px;
+      }
+    }
+
+    .nav-container {
+      padding: 0 1.5rem;
+      gap: 0px;
+    }
+
+    .nav-links {
+      margin-left: 0px;
+      gap: 1rem;
+    }
+  }
+
+  .page-content {
+    width: 99%;
+    padding: 0;
+    .content-section {
+      .section-title {
+        font-size: 2rem;
+        margin: 1rem 0 2rem;
+      }
+    }
+
+    .article-detail {
+      .article-header {
+        h1 {
+          font-size: 2rem;
+        }
+      }
+
+      .article-content {
+        h1 {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+
+  .pepito1 {
+    height: 20vh;
+
+    .pepito1-title {
+      font-size: 1.7rem;
+    }
+  }
+}

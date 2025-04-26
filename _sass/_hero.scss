@@ -1,0 +1,38 @@
+// _sass/_hero.scss
+.hero {
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  padding: 0 5%;
+  background: linear-gradient(45deg, rgba($darker-bg, 0.95), rgba($darker-bg, 0.5)),
+              url('/images/robot-bg.jpg') center/cover;
+  
+  .hero-content {
+    max-width: 800px;
+    
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      line-height: 1.1;
+      text-shadow: 0 0 20px rgba($primary, 0.3);
+    }
+  }
+}
+
+.pepito1 {
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  padding: 0 5%;
+  background: linear-gradient(45deg, rgba($darker-bg, 0.95), rgba($darker-bg, 0.5)),
+              url('/images/pepito-square.jpg') center/cover;
+  justify-content: center;
+
+  .pepito1-title {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    text-shadow: 0 0 20px rgba($primary, 0.3);
+    text-align: center;
+  }
+}

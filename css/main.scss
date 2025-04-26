@@ -1,0 +1,155 @@
+---
+---
+// css/main.scss
+@charset "utf-8";
+@use "sass:color";
+
+// Import partials from _sass directory
+@import "variables";
+@import "mixins";
+@import "header";
+@import "footer";
+@import "hero";
+@import "content";
+@import "cards";
+@import "articles";
+@import "codeblock";
+@import "syntax-highlighting";
+@import "mobile";
+
+// Base styles
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&family=Source+Code+Pro&display=swap');
+
+body {
+  background-color: $dark-bg;
+  color: $text-primary;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+// Utility Classes
+.diagonal-split {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(45deg, transparent 49%, $dark-bg 50%);
+  }
+}
+
+.hover-glow {
+  transition: filter 0.3s;
+  &:hover {
+    filter: drop-shadow(0 0 10px rgba($primary, 0.3));
+  }
+}
+
+.pdf-link {
+  color: $text-primary;
+  text-decoration: none;
+  position: relative;
+  padding: 0.5rem 0;
+  font-size: 1.5rem;
+  transition: color 0.3s, transform 0.3s;
+  
+  &:hover {
+    color: $primary;
+    transform: translateY(-3px);
+  }
+}
+
+.github-mini {
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+  color: $text-secondary;
+  transition: color 0.3s;
+  position: relative;
+  text-decoration: none;
+  
+  &::after {
+    content: "View on GitHub";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: $darker-bg;
+    color: $text-primary;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+   
+  &:hover {
+    color: $primary;
+      
+    &::after {
+      opacity: 1;
+    }
+  }
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+}
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0.5rem 0;
+  box-sizing: border-box;
+  text-indent: inherit;
+  unicode-bidi: isolate;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  th {
+    padding: 0.75rem;
+    border-bottom: 2px solid $text-primary;
+  }
+
+  td {
+    padding: 0.75rem;
+  }
+
+  tr {
+    border-bottom: 1px solid $text-primary;
+  }
+
+  tr:last-child {
+    border-bottom: none;
+  }
+
+  thead {
+    color: $primary;
+  }
+
+  // tbody tr:nth-child(even) {
+  //   background-color: rgba($primary, 0.05);
+  // }
+}
+
+blockquote {
+  background: $card-bg;
+  border-left: 10px solid $primary;
+  margin: 1.5em 10px;
+  padding: .1em 10px .1em;
+}

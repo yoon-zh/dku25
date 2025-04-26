@@ -1,0 +1,68 @@
+// _sass/_articles.scss
+
+// Articles Page Styles
+.article-detail {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5%;
+
+  .article-header {
+    margin: 2rem 0 0;
+  }
+  
+  .github-icon {
+    color: $text-secondary;
+    font-size: 0.8em;
+    margin-left: 0.5rem;
+    transition: color 0.3s;
+  
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  .article-meta {
+    color: $text-secondary;
+    margin: 0.5rem 0 0;
+    font-size: 1rem;
+    padding: 1rem 0 0;
+  }
+  
+  .tech-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+  
+    .tech-tag {
+      background: rgba($primary, 0.1);
+      color: $primary;
+      padding: 0.25rem 0.75rem;
+      border-radius: 1rem;
+      font-size: 0.85rem;
+      border: 1px solid rgba($primary, 0.3);
+    }
+  }
+  
+  .article-content {
+    h1, h2, h3 {
+      padding-top: 1.5rem;
+    }
+
+    table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+      width: 100%;
+      margin: 1em 0;
+    }
+
+    .katex-display {
+      max-width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      height: 100%;
+    }
+  }
+}
