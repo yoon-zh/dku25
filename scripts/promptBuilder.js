@@ -1,5 +1,5 @@
 // scripts/promptBuilder.js
-function buildHealthPrompt(answers, questions) {
+window.buildHealthPrompt = function(answers, questions) {
   let prompt = "Analyze this health data and provide a risk assessment:\n\n";
   
   prompt += Object.entries(answers)
