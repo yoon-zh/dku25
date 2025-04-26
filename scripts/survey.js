@@ -5,10 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const keyValue = params.get("key")
   if (keyValue !== null) {
     API_KEY = atob(keyValue);
-    console.log(API_KEY);
   }
   else {
-    console.log("no foo param in url")
+    console.error("No key parameter");
   }
 
   const API_URL = 'https://openrouter.ai/api/v1/chat/completions';
