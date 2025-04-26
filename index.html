@@ -54,19 +54,130 @@
     <!-- _layouts/home.html -->
 <section class="hero">
   <div class="hero-content">
-    <h1 class="hero-title">Home | 首页 </h1>
-    <p class="hero-subtitle">#define jiā 홈페이지 [homepage] 초기 화면</p>
+    <h1 class="hero-title">Home</h1>
+    <p class="hero-subtitle">homepage</p>
   </div>
 </section>
 
 <section class="content-section">
-  <!-- _includes/card-grid.html -->
-<h2 class="section-title">Featured Projects</h2>
+  <div id="survey-flow">
+    <div id="welcome-screen" class="survey-step active">
+      <h2>Welcome to Your Daily Health Check</h2>
+      <p>Let's assess your current health status and identify potential risks.</p>
+      <div class="btn-primary" id="start-survey">Start Check-Up</div>
+    </div>
 
+    <div id="questions-container" class="survey-step">
+      
+      <div class="question-step" data-question-id="1">
+        <h3 class="question-text">What is your age?</h3>
+        <div class="question-input">
+          
+              <input type="number" 
+                    data-question-id="1"
+                    min="1" 
+                    max="120"
+                    placeholder="Enter your age in years">
+                    
+            
+        </div>
+      </div>
+      
+      <div class="question-step" data-question-id="2">
+        <h3 class="question-text">How would you rate your overall health?</h3>
+        <div class="question-input">
+          
+              <div class="select-options">
+                
+                  <div class="select-option" data-value="Excellent">Excellent</div>
+                
+                  <div class="select-option" data-value="Good">Good</div>
+                
+                  <div class="select-option" data-value="Fair">Fair</div>
+                
+                  <div class="select-option" data-value="Poor">Poor</div>
+                
+              </div>
+              
+            
+        </div>
+      </div>
+      
+      <div class="question-step" data-question-id="3">
+        <h3 class="question-text">Select any symptoms you're currently experiencing:</h3>
+        <div class="question-input">
+          
+              <div class="multiselect-options">
+                
+                  <div class="multiselect-option" data-value="Fatigue">
+                    Fatigue
+                    <div class="checkmark"></div>
+                  </div>
+                
+                  <div class="multiselect-option" data-value="Headache">
+                    Headache
+                    <div class="checkmark"></div>
+                  </div>
+                
+                  <div class="multiselect-option" data-value="Fever">
+                    Fever
+                    <div class="checkmark"></div>
+                  </div>
+                
+                  <div class="multiselect-option" data-value="Cough">
+                    Cough
+                    <div class="checkmark"></div>
+                  </div>
+                
+                  <div class="multiselect-option" data-value="Shortness of breath">
+                    Shortness of breath
+                    <div class="checkmark"></div>
+                  </div>
+                
+              </div>
+              
+            
+        </div>
+      </div>
+      
+      <div class="question-step" data-question-id="4">
+        <h3 class="question-text">Any other health concerns you'd like to mention?</h3>
+        <div class="question-input">
+          
+              <textarea data-question-id="4" 
+                      placeholder="Describe your concerns..."></textarea>
+          
+        </div>
+      </div>
+      
+    </div>
 
-<div class="card-list">
-  
-</div>
+    <div class="survey-controls">
+      <div class="btn-secondary" id="prev-question">Previous</div>
+      <div class="btn-primary" id="next-question">Next</div>
+    </div>
+
+    <div id="summary-screen" class="survey-step">
+      <h2>Review Your Answers</h2>
+      <table class="summary-table">
+        <thead>
+          <tr>
+            <th>Question</th>
+            <th>Answer</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="summary-answers"></tbody>
+      </table>
+      <div class="btn-primary" id="submit-survey">Submit Health Check</div>
+    </div>
+
+    <div id="ai-response" class="survey-step">
+      <h2>Health Analysis</h2>
+      <div class="analysis-result"></div>
+      <div class="btn-primary" id="restart-survey">Start New Check-Up</div>
+    </div>
+  </div>
 </section>
   </main>
 
@@ -86,5 +197,6 @@
 <script src="/scripts/main.js"></script>
 <script src="/scripts/codeblocks.js"></script>
 <script src="/scripts/axeptio.js"></script>
+<script src="/scripts/survey.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,31 @@
+questions:
+  - id: 1
+    type: "number"
+    question: "What is your age?"
+    placeholder: "Enter your age in years"
+    min: 1
+    max: 120
+    
+  - id: 2
+    type: "select"
+    question: "How would you rate your overall health?"
+    options:
+      - "Excellent"
+      - "Good"
+      - "Fair"
+      - "Poor"
+      
+  - id: 3
+    type: "multiselect"
+    question: "Select any symptoms you're currently experiencing:"
+    options:
+      - "Fatigue"
+      - "Headache"
+      - "Fever"
+      - "Cough"
+      - "Shortness of breath"
+      
+  - id: 4
+    type: "text"
+    question: "Any other health concerns you'd like to mention?"
+    placeholder: "Describe your concerns..."
