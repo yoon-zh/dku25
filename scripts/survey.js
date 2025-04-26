@@ -1,4 +1,7 @@
+// scripts/survey.
 document.addEventListener('DOMContentLoaded', () => {
+  const API_KEY = 'YOUR_API_KEY';
+  const API_URL = 'https://openrouter.ai/api/v1/chat/completions';
   const surveyFlow = {
     currentStep: 0,
     answers: {},
@@ -6,6 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
     init() {
       this.cacheElements();
       this.bindEvents();
+      this.hideAllSections();
+      document.getElementById('welcome-screen').classList.add('active');
       this.showStep(0);
     },
       
@@ -15,13 +20,23 @@ document.addEventListener('DOMContentLoaded', () => {
         questions: Array.from(document.querySelectorAll('.question-step')),
         prevBtn: document.getElementById('prev-question'),
         nextBtn: document.getElementById('next-question'),
+        controls: document.querySelector('.survey-controls'),
         summaryTable: document.getElementById('summary-answers'),
         submitBtn: document.getElementById('submit-survey'),
         analysisResult: document.querySelector('.analysis-result'),
-        restartBtn: document.getElementById('restart-survey')
+        restartBtn: document.getElementById('restart-survey'),
+        inputs: Array.from(document.querySelectorAll('input, textarea'))
       };
     },
-      
+    
+    hideAllSections() {
+      document.getElementById('welcome-screen').classList.remove('active');
+      document.getElementById('questions-container').classList.remove('active');
+      document.getElementById('summary-screen').classList.remove('active');
+      document.getElementById('ai-response').classList.remove('active');
+      this.elements.controls.style.display = 'none';
+    },
+
     bindEvents() {
       this.elements.startBtn.addEventListener('click', () => this.startSurvey());
       this.elements.prevBtn.addEventListener('click', () => this.prevQuestion());
@@ -29,14 +44,25 @@ document.addEventListener('DOMContentLoaded', () => {
       this.elements.submitBtn.addEventListener('click', () => this.submitSurvey());
       this.elements.restartBtn.addEventListener('click', () => this.restartSurvey());
 
+      this.elements.inputs.forEach(input => {
+        input.addEventListener('input', (e) => this.handleInput(e));
+      });
+
       document.querySelectorAll('.select-option, .multiselect-option').forEach(option => {
         option.addEventListener('click', (e) => this.handleOptionSelect(e));
       });
     },
+
+    handleInput(e) {
+      const input = e.target;
+      const questionId = input.closest('.question-step').dataset.questionId;
+      this.answers[questionId] = input.value.trim();
+    },
       
     startSurvey() {
-      document.getElementById('welcome-screen').classList.remove('active');
+      this.hideAllSections();
       document.getElementById('questions-container').classList.add('active');
+      this.elements.controls.style.display = 'flex';
       this.showStep(0);
     },
       
@@ -46,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
         
       this.elements.prevBtn.style.display = stepIndex > 0 ? 'flex' : 'none';
-      this.elements.nextBtn.textContent = stepIndex === this.elements.questions.length - 1 ? 'Finish' : 'Next';
+      this.elements.nextBtn.textContent = stepIndex === this.elements.questions.length - 1 ? 'Review' : 'Next';
     },
       
     nextQuestion() {
@@ -85,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
       
     showSummary() {
-      document.getElementById('questions-container').classList.remove('active');
+      this.hideAllSections();
       document.getElementById('summary-screen').classList.add('active');
         
       this.elements.summaryTable.innerHTML = this.elements.questions
@@ -93,11 +119,12 @@ document.addEventListener('DOMContentLoaded', () => {
           const qId = question.dataset.questionId;
           const qText = question.querySelector('.question-text').textContent;
           const answer = this.answers[qId] || 'Not answered';
+          const displayAnswer = answer === '' ? 'Not answered' : answer;
             
           return `
             <tr>
               <td>${qText}</td>
-              <td>${Array.isArray(answer) ? answer.join(', ') : answer}</td>
+              <td>${Array.isArray(displayAnswer) ? displayAnswer.join(', ') : displayAnswer}</td>
               <td><div class="btn-secondary modify-btn" data-question-id="${qId}">Modify</div></td>
             </tr>
           `;
@@ -106,37 +133,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
       document.querySelectorAll('.modify-btn').forEach(btn => {
         btn.addEventListener('click', () => {
-          const questionId = btn.dataset.questionId;
-          this.currentStep = parseInt(questionId) - 1;
-          document.getElementById('summary-screen').classList.remove('active');
+          this.hideAllSections();
           document.getElementById('questions-container').classList.add('active');
+          this.elements.controls.style.display = 'flex';
+          this.currentStep = parseInt(btn.dataset.questionId) - 1;
           this.showStep(this.currentStep);
         });
       });
     },
       
     async submitSurvey() {
-      const prompt = Object.entries(this.answers)
-        .map(([qId, answer]) => {
-          const question = site.data.survey.questions.find(q => q.id == qId).question;
-          return `Question: ${question}\nAnswer: ${Array.isArray(answer) ? answer.join(', ') : answer}`;
-        })
-        .join('\n\n');
-        
       try {
-        const analysis = await this.getHealthAnalysis(prompt);
-        document.getElementById('summary-screen').classList.remove('active');
+        this.elements.analysisResult.textContent = 'Analyzing your responses...';
+        this.hideAllSections();
         document.getElementById('ai-response').classList.add('active');
+        
+        const prompt = buildHealthPrompt(this.answers, site.data.survey.questions);
+        const analysis = await this.getHealthAnalysis(prompt);
+        
         this.elements.analysisResult.textContent = analysis;
       }
       catch (error) {
         console.error('Error:', error);
-        alert('Error generating analysis. Please try again.');
+        this.elements.analysisResult.textContent = 'Error generating analysis. Please try again.';
       }
     },
+
       
     async getHealthAnalysis(prompt) {
-      const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+      const response = await fetch(API_URL, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${API_KEY}`,
@@ -145,26 +170,28 @@ document.addEventListener('DOMContentLoaded', () => {
           'X-Title': document.title
         },
         body: JSON.stringify({
-          model: 'google/palm-2',
+          model: 'deepseek-ai/deepseek-7b-chat',
           messages: [{
             role: 'user',
-            content: `Analyze this health data and provide a risk assessment:\n\n${prompt}`
-          }]
+            content: prompt
+          }],
+          temperature: 0.7,
+          max_tokens: 1000
         })
       });
         
+      if (!response.ok) throw new Error('API request failed');
       const data = await response.json();
       return data.choices[0].message.content;
     },
       
     restartSurvey() {
-      this.currentStep = 0;
       this.answers = {};
-      document.getElementById('ai-response').classList.remove('active');
+      this.currentStep = 0;
+      this.hideAllSections();
       document.getElementById('welcome-screen').classList.add('active');
-      this.elements.questions.forEach(q => q.style.display = 'none');
+      this.elements.inputs.forEach(input => input.value = '');
       document.querySelectorAll('.selected').forEach(el => el.classList.remove('selected'));
-      document.querySelectorAll('input, textarea').forEach(el => el.value = '');
     }
   };
     

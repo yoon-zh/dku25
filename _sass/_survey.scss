@@ -36,31 +36,60 @@
   border: 1px solid rgba($primary, 0.3);
 }
   
+// _sass/_survey.scss
 .question-step {
   .question-text {
-    color: $text-primary;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
   }
+
+  .question-input {
+    margin: 0 1rem;
     
-  .select-options, .multiselect-options {
-    display: grid;
-    gap: 1rem;
-    
-    .select-option, .multiselect-option {
+    input, textarea {
+      width: calc(100% - 2rem);
+      margin: 0 1rem;
       padding: 1rem;
       background: $darker-bg;
+      border: 1px solid rgba($primary, 0.3);
       border-radius: 8px;
-      cursor: pointer;
-      position: relative;
-      transition: $card-transition;
-        
-      &:hover {
-        background: lighten($darker-bg, 5%);
+      color: $text-primary;
+      font-size: 1rem;
+      
+      &::placeholder {
+        color: rgba($text-secondary, 0.5);
       }
-        
-      &.selected {
-        background: rgba($primary, 0.1);
-        border: 1px solid $primary;
+    }
+    
+    input[type="number"] {
+      -moz-appearance: textfield;
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+
+    .select-options, .multiselect-options {
+      display: grid;
+      gap: 1rem;
+      
+      .select-option, .multiselect-option {
+        padding: 1rem;
+        background: $darker-bg;
+        border-radius: 8px;
+        cursor: pointer;
+        position: relative;
+        transition: $card-transition;
+          
+        &:hover {
+          background: lighten($darker-bg, 5%);
+        }
+          
+        &.selected {
+          background: rgba($primary, 0.1);
+          border: 1px solid $primary;
+        }
       }
     }
   }
@@ -92,3 +121,16 @@
   white-space: pre-wrap;
   line-height: 1.6;
 }
+
+.survey-controls {
+  display: none;
+  justify-content: space-between;
+  margin: 2rem auto;
+  max-width: 800px;
+}
+
+#summary-screen, #ai-response {
+  position: relative;
+  z-index: 2;
+}
+
