@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
       this.hideAllSections();
       document.getElementById('welcome-screen').classList.add('active');
       this.showStep(0);
+      this.initScaleSliders();
     },
       
     cacheElements() {
@@ -70,9 +71,18 @@ document.addEventListener('DOMContentLoaded', () => {
       const input = e.target;
       const questionId = input.closest('.question-step').dataset.questionId;
       this.answers[questionId] = input.value.trim();
-
+    
       if (input.classList.contains('scale-slider')) {
-        input.nextElementSibling.textContent = input.value;
+        const container = input.closest('.scale-track');
+        const fill = container.querySelector('.scale-fill');
+        const valueContainer = container.querySelector('.scale-value-container');
+        const valueDisplay = container.querySelector('.scale-value');
+        const min = parseInt(input.min);
+        const max = parseInt(input.max);
+        const percentage = ((input.value - min) / (max - min)) * 100;
+    
+        fill.style.width = `${percentage}%`;
+        valueDisplay.textContent = input.value;
       }
     },
       
@@ -181,6 +191,13 @@ document.addEventListener('DOMContentLoaded', () => {
                           .map(el => el.dataset.value);
         this.answers[questionId] = selected;
       }
+    },
+
+    initScaleSliders() {
+      document.querySelectorAll('.scale-slider').forEach(slider => {
+        const event = new Event('input');
+        slider.dispatchEvent(event);
+      });
     },
 
     showSummary() {
