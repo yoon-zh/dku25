@@ -90,15 +90,32 @@
   }
 
   .summary-table {
-    min-width: 600px;
-    
+    min-width: auto;
+    width: 100%;
+
     th, td {
       padding: 0.75rem;
       font-size: 0.9rem;
     }
-    
+
+    th:nth-child(1),
+    td:nth-child(1) {
+      width: 35%;
+    }
+
+    th:nth-child(2),
+    td:nth-child(2) {
+      width: 35%;
+    }
+
+    th:nth-child(3),
+    td:nth-child(3) {
+      width: 30%;
+      min-width: 80px;
+    }
+
     .modify-btn {
-      padding: 0.5rem;
+      padding: 0.4rem;
       font-size: 0.8rem;
     }
   }
@@ -201,10 +218,25 @@
   }
 
   .summary-table {
-    max-width: 480px;
-      
     th, td {
-      padding: 1rem 0 0;
+      padding: 0.5rem;
+      font-size: 0.85rem;
     }
-  }  
+
+    th:nth-child(1),
+    td:nth-child(1) {
+      width: 40%;
+    }
+
+    th:nth-child(2),
+    td:nth-child(2) {
+      width: 35%;
+    }
+
+    th:nth-child(3),
+    td:nth-child(3) {
+      width: 25%;
+      min-width: 70px;
+    }
+  }
 }

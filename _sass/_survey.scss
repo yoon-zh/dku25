@@ -123,6 +123,7 @@
   
 .summary-table {
   width: 100%;
+  table-layout: fixed;
   border-collapse: collapse;
   margin: 2rem 0;
     
@@ -130,12 +131,38 @@
     padding: 1rem;
     text-align: left;
     border-bottom: 1px solid rgba($primary, 0.1);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
     
   td {
     max-width: 200px;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  th:nth-child(1),
+  td:nth-child(1) {
+    width: 40%;
+  }
+
+  th:nth-child(2),
+  td:nth-child(2) {
+    width: 40%;
+  }
+
+  th:nth-child(3),
+  td:nth-child(3) {
+    width: 20%;
+    min-width: 90px;
+  }
+
+  .modify-btn {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    text-align: center
   }
 }
   
