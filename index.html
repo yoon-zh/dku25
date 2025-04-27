@@ -51,15 +51,16 @@
     </nav>
   </div>
 </header>
-  
-  <main class="page-content">
-    <!-- _layouts/home.html -->
+
 <section class="hero">
   <div class="hero-content">
     <h1 class="hero-title">Health Horizon</h1>
     <p class="hero-subtitle">AI Powered Health</p>
   </div>
 </section>
+  
+  <main class="page-content">
+    <!-- _layouts/home.html -->
 
 <section class="content-section">
   <div id="survey-flow">
@@ -72,7 +73,7 @@
     <div id="questions-container" class="survey-step">
       
       <div class="question-step" data-question-id="1">
-        <h3 class="question-text">Gender</h3>
+        <h3 class="question-text">What is your gender?</h3>
         <div class="question-input">
           
               <div class="select-options">
@@ -104,7 +105,7 @@
       </div>
       
       <div class="question-step" data-question-id="3">
-        <h3 class="question-text">Do you suffer from pain?</h3>
+        <h3 class="question-text">Do you experience pain?</h3>
         <div class="question-input">
           
               <div class="select-options">
@@ -120,7 +121,7 @@
       </div>
       
       <div class="question-step" data-question-id="3.1">
-        <h3 class="question-text">Which part of body do you suffer from pain?</h3>
+        <h3 class="question-text">Where on your body do you feel pain?</h3>
         <div class="question-input">
           
               <textarea data-question-id="3.1" 
@@ -130,7 +131,7 @@
       </div>
       
       <div class="question-step" data-question-id="3.2">
-        <h3 class="question-text">How would you rate your pain...</h3>
+        <h3 class="question-text">How would you rate your pain on a scale from 1 to 10, with 1 being mild and 10 being severe?</h3>
         <div class="question-input">
           
               <div class="scale-container">
@@ -158,7 +159,7 @@
       </div>
       
       <div class="question-step" data-question-id="3.4">
-        <h3 class="question-text">Are there specific activates or times when the pain is worse?</h3>
+        <h3 class="question-text">Are there specific activities or times when the pain worsens?</h3>
         <div class="question-input">
           
               <textarea data-question-id="3.4" 
@@ -184,7 +185,7 @@
       </div>
       
       <div class="question-step" data-question-id="4.1">
-        <h3 class="question-text">If yes, what is the highest body temperature detected?</h3>
+        <h3 class="question-text">If yes, what was your highest recorded body temperature?</h3>
         <div class="question-input">
           
               <textarea data-question-id="4.1" 
@@ -194,7 +195,7 @@
       </div>
       
       <div class="question-step" data-question-id="5">
-        <h3 class="question-text">Do you suffer from fatigue?</h3>
+        <h3 class="question-text">Do you experience fatigue?</h3>
         <div class="question-input">
           
               <div class="select-options">
@@ -210,7 +211,7 @@
       </div>
       
       <div class="question-step" data-question-id="5.1">
-        <h3 class="question-text">If yes, how would you rate your level of fatigue on a scale from 1 to 10, with 1 being fully energized and 10 being completely exhausted?</h3>
+        <h3 class="question-text">How would you rate your level of fatigue on a scale from 1 to 10, with 1 being fully energized and 10 being completely exhausted?</h3>
         <div class="question-input">
           
               <div class="scale-container">
@@ -228,7 +229,7 @@
       </div>
       
       <div class="question-step" data-question-id="5.2">
-        <h3 class="question-text">Does the fatigue affect your daily activities?</h3>
+        <h3 class="question-text">How does fatigue affect your daily activities?</h3>
         <div class="question-input">
           
               <textarea data-question-id="5.2" 
@@ -238,7 +239,7 @@
       </div>
       
       <div class="question-step" data-question-id="6">
-        <h3 class="question-text">How would you rate your appetite on a scale from 1 to 10, with 1 being no appetite at all and 10 being very hungry?</h3>
+        <h3 class="question-text">How would you rate your appetite on a scale from 1 to 10, with 1 being no appetite and 10 being very hungry?</h3>
         <div class="question-input">
           
               <div class="scale-container">
@@ -256,7 +257,7 @@
       </div>
       
       <div class="question-step" data-question-id="7">
-        <h3 class="question-text"> Have you noticed any changes in your eating habits?</h3>
+        <h3 class="question-text">What changes have you noticed in your eating habits?</h3>
         <div class="question-input">
           
               <textarea data-question-id="7" 
@@ -266,7 +267,7 @@
       </div>
       
       <div class="question-step" data-question-id="8">
-        <h3 class="question-text">How would you rate your sleep quality on a scale from 1 to 10, with 1 being very poor sleep and 10 being excellent sleep?</h3>
+        <h3 class="question-text">How would you rate your sleep quality on a scale from 1 to 10, with 1 being very poor and 10 being excellent?</h3>
         <div class="question-input">
           
               <div class="scale-container">
@@ -300,7 +301,7 @@
       </div>
       
       <div class="question-step" data-question-id="10">
-        <h3 class="question-text">Do you have trouble breathing?</h3>
+        <h3 class="question-text">Do you experience breathing difficulties?</h3>
         <div class="question-input">
           
               <div class="select-options">
@@ -334,17 +335,27 @@
       </div>
       
       <div class="question-step" data-question-id="10.2">
-        <h3 class="question-text">Do you experience shortness of breath during physical activity or at rest?</h3>
+        <h3 class="question-text">When do you experience shortness of breath?</h3>
         <div class="question-input">
           
-              <textarea data-question-id="10.2" 
-                      placeholder="Describe your concerns..."></textarea>
-          
+              <div class="select-options">
+                
+                  <div class="select-option" data-value="During physical activity">During physical activity</div>
+                
+                  <div class="select-option" data-value="At rest">At rest</div>
+                
+                  <div class="select-option" data-value="Both">Both</div>
+                
+                  <div class="select-option" data-value="None">None</div>
+                
+              </div>
+              
+            
         </div>
       </div>
       
       <div class="question-step" data-question-id="11">
-        <h3 class="question-text">Do you suffer from nausea?</h3>
+        <h3 class="question-text">Do you experience nausea?</h3>
         <div class="question-input">
           
               <div class="select-options">
@@ -378,7 +389,7 @@
       </div>
       
       <div class="question-step" data-question-id="12">
-        <h3 class="question-text">Have you experienced any vomiting or dry heaves?</h3>
+        <h3 class="question-text">Have you experienced vomiting or dry heaves?</h3>
         <div class="question-input">
           
               <div class="select-options">
@@ -394,7 +405,7 @@
       </div>
       
       <div class="question-step" data-question-id="12.1">
-        <h3 class="question-text"> If so, how often?</h3>
+        <h3 class="question-text">If yes, how often does this occur?</h3>
         <div class="question-input">
           
               <textarea data-question-id="12.1" 
@@ -404,7 +415,7 @@
       </div>
       
       <div class="question-step" data-question-id="13">
-        <h3 class="question-text">Do you cough?</h3>
+        <h3 class="question-text">Do you have a cough?</h3>
         <div class="question-input">
           
               <div class="select-options">
@@ -420,7 +431,7 @@
       </div>
       
       <div class="question-step" data-question-id="13.1">
-        <h3 class="question-text">How would you rate your severity of your cough on a scale from 1 to 10, with 1 being no cough and 10 being a severe, persistent cough?</h3>
+        <h3 class="question-text">How would you rate the severity of your cough on a scale from 1 to 10, with 1 being no cough and 10 being a severe, persistent cough?</h3>
         <div class="question-input">
           
               <div class="scale-container">
@@ -438,12 +449,12 @@
       </div>
       
       <div class="question-step" data-question-id="13.2">
-        <h3 class="question-text">Is your cough productive(producing mucus) or dry?</h3>
+        <h3 class="question-text">Is your cough productive (with mucus) or dry?</h3>
         <div class="question-input">
           
               <div class="select-options">
                 
-                  <div class="select-option" data-value="Productive (producing mucus)">Productive (producing mucus)</div>
+                  <div class="select-option" data-value="Productive (with mucus)">Productive (with mucus)</div>
                 
                   <div class="select-option" data-value="Dry">Dry</div>
                 
@@ -454,7 +465,7 @@
       </div>
       
       <div class="question-step" data-question-id="14">
-        <h3 class="question-text">Do you suffer from rash or itching?</h3>
+        <h3 class="question-text">Do you have a rash or itching?</h3>
         <div class="question-input">
           
               <div class="select-options">
@@ -470,7 +481,7 @@
       </div>
       
       <div class="question-step" data-question-id="14.1">
-        <h3 class="question-text">On a scale from 1-10, how would you rate the severity of your rash or itching, with 1 being on rash/ itching and 10 being severe?</h3>
+        <h3 class="question-text">How would you rate the severity of your rash or itching on a scale from 1 to 10, with 1 being mild and 10 being severe?</h3>
         <div class="question-input">
           
               <div class="scale-container">
@@ -504,7 +515,7 @@
       </div>
       
       <div class="question-step" data-question-id="14.3">
-        <h3 class="question-text">If the rash is localized, where is it?</h3>
+        <h3 class="question-text">If localized, where is the rash located?</h3>
         <div class="question-input">
           
               <textarea data-question-id="14.3" 
@@ -514,7 +525,7 @@
       </div>
       
       <div class="question-step" data-question-id="15">
-        <h3 class="question-text">Do you suffer from sweeling?</h3>
+        <h3 class="question-text">Do you experience swelling?</h3>
         <div class="question-input">
           
               <div class="select-options">
@@ -530,7 +541,7 @@
       </div>
       
       <div class="question-step" data-question-id="15.1">
-        <h3 class="question-text">How would you rate the sweeling on a scale from 1-10, with 1 being sweeling and 10 being severe sweeling?</h3>
+        <h3 class="question-text">How would you rate the swelling on a scale from 1 to 10, with 1 being mild and 10 being severe?</h3>
         <div class="question-input">
           
               <div class="scale-container">
@@ -548,7 +559,7 @@
       </div>
       
       <div class="question-step" data-question-id="15.2">
-        <h3 class="question-text">Is the sweeling accompanied by redness or warmth?</h3>
+        <h3 class="question-text">Is the swelling accompanied by redness or warmth?</h3>
         <div class="question-input">
           
               <textarea data-question-id="15.2" 
@@ -558,7 +569,7 @@
       </div>
       
       <div class="question-step" data-question-id="16">
-        <h3 class="question-text">Do you feel that your movements are slow or that you have difficulty initiating movements?</h3>
+        <h3 class="question-text">Do you experience slow movements or difficulty initiating movements?</h3>
         <div class="question-input">
           
               <div class="select-options">
@@ -574,7 +585,7 @@
       </div>
       
       <div class="question-step" data-question-id="16.1">
-        <h3 class="question-text">If yes, how would you rate the severity of this symptom on a scale from 1 to 10?</h3>
+        <h3 class="question-text">How would you rate the severity of this symptom on a scale from 1 to 10, with 1 being mild and 10 being severe?</h3>
         <div class="question-input">
           
               <div class="scale-container">
@@ -592,7 +603,7 @@
       </div>
       
       <div class="question-step" data-question-id="17">
-        <h3 class="question-text">Have you noticed any tremors or rigidity in your body?</h3>
+        <h3 class="question-text">Have you noticed tremors or stiffness in your body?</h3>
         <div class="question-input">
           
               <div class="select-options">
@@ -608,7 +619,7 @@
       </div>
       
       <div class="question-step" data-question-id="17.1">
-        <h3 class="question-text">If yes, in which parts of your body do you experience these symptoms?</h3>
+        <h3 class="question-text">Where on your body do you experience these symptoms?</h3>
         <div class="question-input">
           
               <textarea data-question-id="17.1" 
@@ -644,7 +655,7 @@
       </div>
       
       <div class="question-step" data-question-id="19">
-        <h3 class="question-text">Any other health concerns you'd like to mention?</h3>
+        <h3 class="question-text">Are there any other health concerns you'd like to mention?</h3>
         <div class="question-input">
           
               <textarea data-question-id="19" 
