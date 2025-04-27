@@ -3,7 +3,7 @@
 questions:
   - id: 1
     type: "select"
-    question: "Gender"
+    question: "What is your gender?"
     options:
       - "Male"
       - "Female"
@@ -18,19 +18,19 @@ questions:
 
   - id: 3
     type: "select"
-    question: "Do you suffer from pain?"
+    question: "Do you experience pain?"
     options:
       - "Yes"
       - "No"
 
   - id: 3.1
     type: "text"
-    question: "Which part of body do you suffer from pain?"
+    question: "Where on your body do you feel pain?"
     placeholder: "Describe your concerns..."
 
   - id: 3.2
     type: "scale"
-    question: "How would you rate your pain..."
+    question: "How would you rate your pain on a scale from 1 to 10, with 1 being mild and 10 being severe?"
     min: 1
     max: 10
 
@@ -41,7 +41,7 @@ questions:
 
   - id: 3.4
     type: "text"
-    question: "Are there specific activates or times when the pain is worse?"
+    question: "Are there specific activities or times when the pain worsens?"
     placeholder: "Describe your concerns..."
 
   - id: 4
@@ -53,36 +53,36 @@ questions:
 
   - id: 4.1
     type: "text"
-    question: "If yes, what is the highest body temperature detected?"
+    question: "If yes, what was your highest recorded body temperature?"
     placeholder: "Describe your concerns..."
 
   - id: 5
     type: "select"
-    question: "Do you suffer from fatigue?"
+    question: "Do you experience fatigue?"
     options:
       - "Yes"
       - "No"
 
   - id: 5.1
     type: "scale"
-    question: "If yes, how would you rate your level of fatigue on a scale from 1 to 10, with 1 being fully energized and 10 being completely exhausted?"
+    question: "How would you rate your level of fatigue on a scale from 1 to 10, with 1 being fully energized and 10 being completely exhausted?"
     min: 1
     max: 10
 
   - id: 5.2
     type: "text"
-    question: "How is the fatigue affecting your daily activities?"
+    question: "How does fatigue affect your daily activities?"
     placeholder: "Describe your concerns..."
 
   - id: 6
     type: "scale"
-    question: "How would you rate your appetite on a scale from 1 to 10, with 1 being no appetite at all and 10 being very hungry?"
+    question: "How would you rate your appetite on a scale from 1 to 10, with 1 being no appetite and 10 being very hungry?"
     min: 1
     max: 10
 
   - id: 7
     type: "text"
-    question: " What changes have you noticed in your eating habits?"
+    question: "What changes have you noticed in your eating habits?"
     placeholder: "Describe your concerns..."
 
   - id: 8
@@ -100,7 +100,7 @@ questions:
 
   - id: 10
     type: "select"
-    question: "Do you have trouble breathing?"
+    question: "Do you experience breathing difficulties?"
     options:
       - "Yes"
       - "No"
@@ -113,7 +113,7 @@ questions:
 
   - id: 10.2
     type: "select"
-    question: "Do you experience shortness of breath during physical activity or at rest?"
+    question: "When do you experience shortness of breath?"
     options:
       - "During physical activity"
       - "At rest"
@@ -122,7 +122,7 @@ questions:
 
   - id: 11
     type: "select"
-    question: "Do you suffer from nausea?"
+    question: "Do you experience nausea?"
     options:
       - "Yes"
       - "No"
@@ -135,46 +135,46 @@ questions:
 
   - id: 12
     type: "select"
-    question: "Have you experienced any vomiting or dry heaves?"
+    question: "Have you experienced vomiting or dry heaves?"
     options:
       - "Yes"
       - "No"
 
   - id: 12.1
     type: "text"
-    question: " If so, how often?"
+    question: "If yes, how often does this occur?"
     placeholder: "Describe your concerns..."
 
   - id: 13
     type: "select"
-    question: "Do you cough?"
+    question: "Do you have a cough?"
     options:
       - "Yes"
       - "No"
 
   - id: 13.1
     type: "scale"
-    question: "How would you rate your severity of your cough on a scale from 1 to 10, with 1 being no cough and 10 being a severe, persistent cough?"
+    question: "How would you rate the severity of your cough on a scale from 1 to 10, with 1 being no cough and 10 being a severe, persistent cough?"
     min: 1
     max: 10
 
   - id: 13.2
     type: "select"
-    question: "Is your cough productive (producing mucus) or dry?"
+    question: "Is your cough productive (with mucus) or dry?"
     options:
-      - "Productive (producing mucus)"
+      - "Productive (with mucus)"
       - "Dry"
 
   - id: 14
     type: "select"
-    question: "Do you suffer from rash or itching?"
+    question: "Do you have a rash or itching?"
     options:
       - "Yes"
       - "No"
 
   - id: 14.1
     type: "scale"
-    question: "On a scale from 1-10, how would you rate the severity of your rash or itching, with 1 being low and 10 being severe?"
+    question: "How would you rate the severity of your rash or itching on a scale from 1 to 10, with 1 being mild and 10 being severe?"
     min: 1
     max: 10
 
@@ -187,19 +187,19 @@ questions:
 
   - id: 14.3
     type: "text"
-    question: "If the rash is localized, where is it?"
+    question: "If localized, where is the rash located?"
     placeholder: "Describe your concerns..."
 
   - id: 15
     type: "select"
-    question: "Do you suffer from swelling?"
+    question: "Do you experience swelling?"
     options:
       - "Yes"
       - "No"
 
   - id: 15.1
     type: "scale"
-    question: "How would you rate the swelling on a scale from 1-10, with 1 being low and 10 being severe?"
+    question: "How would you rate the swelling on a scale from 1 to 10, with 1 being mild and 10 being severe?"
     min: 1
     max: 10
 
@@ -210,27 +210,27 @@ questions:
 
   - id: 16
     type: "select"
-    question: "Do you feel that your movements are slow or that you have difficulty initiating movements?"
+    question: "Do you experience slow movements or difficulty initiating movements?"
     options:
       - "Yes"
       - "No"
 
   - id: 16.1
     type: "scale"
-    question: "How would you rate the severity of this symptom on a scale from 1 to 10, with 1 being low and 10 being severe?"
+    question: "How would you rate the severity of this symptom on a scale from 1 to 10, with 1 being mild and 10 being severe?"
     min: 1
     max: 10
 
   - id: 17
     type: "select"
-    question: "Have you noticed any tremors or rigidity in your body?"
+    question: "Have you noticed tremors or stiffness in your body?"
     options:
       - "Yes"
       - "No"
 
   - id: 17.1
     type: "text"
-    question: "In which parts of your body do you experience these symptoms?"
+    question: "Where on your body do you experience these symptoms?"
     placeholder: "Describe your concerns..."
 
   - id: 18
@@ -242,10 +242,10 @@ questions:
 
   - id: 18.1
     type: "text"
-    question: "If yes, how would you describe the consistency and frequency of your stools?"
+    question: "If yes, how would you describe the consistency and frequency of your bowel movements?"
     placeholder: "Describe your concerns..."
 
   - id: 19
     type: "text"
-    question: "Any other health concerns you'd like to mention?"
+    question: "Are there any other health concerns you'd like to mention?"
     placeholder: "Describe your concerns..."
