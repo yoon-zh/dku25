@@ -4,7 +4,7 @@
     height:25vh;
     .hero-content {
       h1 {
-        font-size: 3rem;
+        font-size: 3.25rem;
       }
     }
     .hero-subtitle {
@@ -119,7 +119,7 @@
     height: 20vh;
     .hero-content {
       h1 {
-        font-size: 2.5rem;
+        font-size: 2.25rem;
       }
     }
     .hero-subtitle {
@@ -184,4 +184,27 @@
       font-size: 1.7rem;
     }
   }
+
+  .survey-step {
+    margin: 2rem auto;
+    padding: 1rem;
+  }
+
+  .question-step {
+    padding: 0;
+    .question-text {
+      padding: 0 0;
+    }
+    .question-input {
+      margin: 0;
+    }
+  }
+
+  .summary-table {
+    max-width: 480px;
+      
+    th, td {
+      padding: 1rem 0 0;
+    }
+  }  
 }
