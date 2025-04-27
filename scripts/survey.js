@@ -98,12 +98,12 @@ document.addEventListener('DOMContentLoaded', () => {
       this.elements.prevBtn.style.display = stepIndex > 0 ? 'flex' : 'none';
       this.elements.nextBtn.textContent = stepIndex === this.elements.questions.length - 1 ? 'Review' : 'Next';
 
+      this.elements.finishBtn.style.display = 'flex';
+
       if (this.isModifying) {
         this.elements.nextBtn.style.display = stepIndex < this.elements.questions.length - 1 ? 'flex' : 'none';
-        this.elements.finishBtn.style.display = 'flex';
       }
       else {
-        this.elements.finishBtn.style.display = 'none';
         this.elements.nextBtn.textContent = stepIndex === this.elements.questions.length - 1 ? 'Review' : 'Next';
       }
     },
@@ -227,6 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
         this.hideAllSections();
         this.isModifying = false;
         this.elements.retryBtn.style.display = 'none';
+        this.elements.restartBtn.style.display = 'none';
         document.getElementById('ai-response').classList.add('active');
         const prompt = buildHealthPrompt(this.answers, this.elements.questions);
         const analysis = await this.getHealthAnalysis(prompt);
@@ -239,11 +240,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         const html = DOMPurify.sanitize(converter.makeHtml(analysis));
         this.elements.analysisResult.innerHTML = html;
+        this.elements.restartBtn.style.display = 'flex';
       }
       catch (error) {
         console.error('Error:', error);
         this.elements.analysisResult.textContent = 'Error generating analysis. Please try again.';
         this.elements.retryBtn.style.display = 'flex';
+        this.elements.restartBtn.style.display = 'flex';
       }
     },
 
@@ -279,6 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
       this.elements.inputs.forEach(input => input.value = '');
       document.querySelectorAll('.selected').forEach(el => el.classList.remove('selected'));
       this.elements.retryBtn.style.display = 'none';
+      this.elements.restartBtn.style.display = 'none';
     }
   };
     
