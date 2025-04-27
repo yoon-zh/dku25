@@ -144,8 +144,68 @@
   background: $darker-bg;
   border-radius: $card-radius;
   margin: 2rem 0;
-  white-space: pre-wrap;
   line-height: 1.6;
+
+  h1, h2, h3 {
+    color: $primary;
+    margin: 1.5rem 0 1rem;
+  }
+
+  p {
+    margin: 1rem 0;
+  }
+
+  ul, ol {
+    margin: 1rem 0;
+    padding-left: 2rem;
+  }
+
+  li {
+    margin: 0.5rem 0;
+  }
+
+  strong {
+    color: $primary;
+  }
+
+  em {
+    color: lighten($text-secondary, 15%);
+  }
+
+  table {
+    @extend .summary-table;
+    margin: 2rem 0;
+    
+    th {
+      background: rgba($primary, 0.1);
+    }
+  }
+
+  code {
+    background: rgba($primary, 0.1);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-family: monospace;
+  }
+
+  pre {
+    background: rgba($primary, 0.05);
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    
+    code {
+      background: none;
+      padding: 0;
+    }
+  }
+
+  blockquote {
+    border-left: 4px solid $primary;
+    margin: 1rem 0;
+    padding-left: 1rem;
+    color: lighten($text-secondary, 15%);
+  }
 }
 
 .survey-controls {

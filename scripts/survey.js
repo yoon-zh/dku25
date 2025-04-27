@@ -229,10 +229,16 @@ document.addEventListener('DOMContentLoaded', () => {
         this.elements.retryBtn.style.display = 'none';
         document.getElementById('ai-response').classList.add('active');
         const prompt = buildHealthPrompt(this.answers, this.elements.questions);
-        console.log(prompt);
         const analysis = await this.getHealthAnalysis(prompt);
         
-        this.elements.analysisResult.textContent = analysis;
+        const converter = new showdown.Converter({
+          tables: true,
+          simplifiedAutoLink: true,
+          strikethrough: true,
+          tasklists: true
+        });
+        const html = DOMPurify.sanitize(converter.makeHtml(analysis));
+        this.elements.analysisResult.innerHTML = html;
       }
       catch (error) {
         console.error('Error:', error);
