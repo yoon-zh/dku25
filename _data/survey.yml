@@ -242,7 +242,7 @@ questions:
 
   - id: 18.1
     type: "text"
-    question: "If yes, how would you describe the consistency and frequency of your bowel movements?"
+    question: "If yes, how would you describe the consistency and frequency of your stools?"
     placeholder: "Describe your concerns..."
 
   - id: 19
