@@ -41,15 +41,27 @@ layout: default
                 {% endfor %}
               </div>
 
-            {% when 'scale' %}
+              {% when 'scale' %}
               <div class="scale-container">
-                <input type="range" 
-                       data-question-id="{{ question.id }}"
-                       min="{{ question.min | default: 1 }}" 
-                       max="{{ question.max | default: 10 }}"
-                       value="{{ question.min | default: 1 }}"
-                       class="scale-slider">
-                <output class="scale-value">{{ question.min | default: 1 }}</output>
+                <div class="scale-labels">
+                  {% for i in (question.min..question.max) %}
+                    <span class="scale-label">{{ i }}</span>
+                  {% endfor %}
+                </div>
+                <div class="scale-track-container">
+                  <div class="scale-track">
+                    <input type="range" 
+                           data-question-id="{{ question.id }}"
+                           min="{{ question.min | default: 1 }}" 
+                           max="{{ question.max | default: 10 }}"
+                           value="5"
+                           class="scale-slider">
+                    <div class="scale-fill"></div>
+                    <div class="scale-value-container">
+                      <output class="scale-value">5</output>
+                    </div>
+                  </div>
+                </div>
               </div>
               
             {% when 'text' %}

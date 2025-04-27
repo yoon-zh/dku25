@@ -129,6 +129,28 @@
       text-align: center;
     }
   }
+
+  .scale-container {
+    .scale-labels {
+      .scale-label {
+        font-size: 0.8rem;
+        width: 18px;
+      }
+    }
+    
+    .scale-track {
+      .scale-slider {
+        &::-webkit-slider-thumb {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+    
+    .scale-value {
+      font-size: 1.2rem;
+    }
+  }
 }
 
 @media (max-width: 480px) {
