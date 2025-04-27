@@ -81,6 +81,13 @@ questions:
     max: 10
 
   - id: 7
+    type: "select"
+    question: "Have you noticed any changes in your eating habits?"
+    options:
+      - "Yes"
+      - "No"
+
+  - id: 7.1
     type: "text"
     question: "What changes have you noticed in your eating habits?"
     placeholder: "Describe your concerns..."
