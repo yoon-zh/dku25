@@ -159,10 +159,13 @@
   }
 
   .modify-btn {
-    padding: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    padding: 0.8rem;
     font-size: 0.9rem;
     white-space: nowrap;
-    text-align: center
   }
 }
   
